@@ -1,0 +1,75 @@
+<!-- 
+
+<div class="">
+  <input
+    [(ngModel)]="newAppointmentTitle"
+    placeholder="Appointment Description"
+  />
+  <input
+    [(ngModel)]="newAppointmentDate"
+    type="date"
+    Placeholder="Appointment Date"
+  />
+  <button (click)="addAppointment()">Add</button>
+</div>
+
+<ul>
+  <li *ngFor="let appointment of appointments; index as i">
+    {{ appointment.title }}
+    {{ appointment.date | date : "dd.mm.yyyy" }}
+    <button (click)="deleteAppointment(i)">Delete</button>
+  </li>
+</ul> -->
+<div class="flex flex-col items-center bg-gray-100 w-screen h-screen gap-5">
+  <div
+    class="flex flex-row w-full shrink-0 justify-center bg-white h-20 items-center"
+  >
+    <h1 class="font-bold px-4 text-xl">Appointment-App</h1>
+  </div>
+
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg">
+    <div class="mb-4">
+      <h2 class="pb-5 font-semibold">Create New Appointment</h2>
+      <input
+        [(ngModel)]="newAppointmentTitle"
+        placeholder="Appointment Description"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+    <div class="mb-4">
+      <input
+        [(ngModel)]="newAppointmentDate"
+        type="date"
+        placeholder="Appointment Date"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+    <button
+      (click)="addAppointment()"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    >
+      Add
+    </button>
+  </div>
+
+  <ul class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <h2 class="pb-5 font-semibold">Appointments</h2>
+    <li
+      *ngFor="let appointment of appointments; index as i"
+      class="flex justify-between items-center border-b border-gray-200 py-2"
+    >
+      <div>
+        <span class="text-gray-700 font-bold">{{ appointment.title }}</span>
+        <span class="text-gray-500 ml-2">{{
+          appointment.date | date : "dd.MM.yyyy"
+        }}</span>
+      </div>
+      <button
+        (click)="deleteAppointment(i)"
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
